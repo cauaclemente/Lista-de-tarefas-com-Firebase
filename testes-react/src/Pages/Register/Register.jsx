@@ -20,7 +20,8 @@ const Register = () => {
     if(email !== "" && password !== "") {
       await createUserWithEmailAndPassword(auth,email,password)
       .then(() => {
-        navigate("./Admin", {replace: true})
+        navigate("/", {replace: true})
+        alert("Cadastro criado com sucesso")
       })
       .catch((error) => {
         console.log("Erro ao cadastrar" + error)

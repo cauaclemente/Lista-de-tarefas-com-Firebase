@@ -46,6 +46,7 @@
     height: 90px;
     resize: none;
     border: 0;
+    padding: 8px;
 }
 
 .button-link {
