@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1>Lista de tarefas</h1>
-      <span>Gerencie sua agenda de forma facil.</span>
+      <span>Gerencie sua agenda de forma fácil.</span>
 
       <form className="form" onSubmit={handleLogin}>
         <input 
