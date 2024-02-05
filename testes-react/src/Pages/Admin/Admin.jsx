@@ -9,7 +9,9 @@ import {
     onSnapshot,
     query,
     orderBy,
-    where
+    where,
+    doc,
+    deleteDoc
 } from "firebase/firestore"
 
 const Admin = () => {
@@ -49,7 +51,7 @@ const Admin = () => {
         loadTarefas();
       }, [])
     
-      async function handleRegister(e){
+      async function handleRegister(e)  {
         e.preventDefault();
     
         if(tarefaInput === ''){
@@ -72,8 +74,13 @@ const Admin = () => {
     
       }
     
-      async function handleLogout(){
+      async function handleLogout() {
         await signOut(auth);
+      }
+
+      async function deleteTarefa(id) {
+        const docRef = doc(db, "tarefas", id)
+        await deleteDoc(docRef) 
       }
 
     return (
@@ -94,7 +101,7 @@ const Admin = () => {
             <p>{item.tarefa}</p>
             <div>
                 <button>Editar</button>
-                <button className="btn-delete">Concluir</button>
+                <button onClick={() => deleteTarefa(item.id) } className="btn-delete">Concluir</button>
             </div>
         </article>
         ))}
